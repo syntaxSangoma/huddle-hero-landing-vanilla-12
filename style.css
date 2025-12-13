@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* || REST */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* || VARIABLES */
+:root {
+    /* COLORS */
+    --MAIN-BG: #684BB1;
+    --TITLE-CLR: #FFFFFF;
+    --DESCRIPTION-CLR: #FFFFFF;
+    --BUTTON-CLR: #684BB1;
+    --BUTTON-HVR-CLR: #FFFFFF;
+    --BUTTON-BG: #FFFFFF;
+    --BUTTON-HVR-BG: #E880E8;
+
+    /* SHADOWS */
+    --BUTTON-SHADOW: 2px 4px 9px 3px hsla(0, 0%, 0%, 0.2586);
+
+    /* TYPOGRAPHY */
+    --FF1: "Poppins", sans-serif;
+    --FF2: "Open Sans", sans-serif;
+
+    /* TYPOGRAPHY - MOBILE */
+    --TITLE-MOB: 600 1.5rem/2.25rem var(--FF1);
+    --DESCRIPTION-MOB: normal 1rem/1.5rem var(--FF2);
+    --BUTTON-MOB: normal .75rem/2.5rem var(--FF1);
+
+    /* TYPOGRAPHY - DESKTOP */
+    --TITLE-DSK: 600 2.5rem/3.75rem var(--FF1);
+    --DESCRIPTION-DSK: normal 1.125rem/1.6875rem var(--FF2);
+    --BUTTON-DSK: normal 1.125rem/3.5rem var(--FF1);
+}
+
+/* || UTILITY CLASSES */
+.offscreen {
+    position: absolute;
+    left: -10000px;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.center {
+    text-align: center;
+}
+
+.responsive-image {
+    display: none;
+}
+
+/* MOBILE FIRST DESIGN */
+/* || GENERAL STYLES */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    max-width: 100%;
+    overflow-x: hidden;
+    display: grid;
+    justify-content: center;
+    background-color: var(--MAIN-BG);
+
+    background-image: url("./images/bg-mobile.svg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100%;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+a:any-link {
+    text-decoration: none;
+}
+
+/* || HUDDLE-HERO */
+.huddle-hero {
+    width: 304px;
+    height: 722px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 12.33% 37.26% 46.54% 3.88%;
+    grid-template-areas:
+        "nav-bar"
+        "hero-img"
+        "content-block"
+        "socials"
+    ;
+    margin: 2.3875rem 2.1875rem 2.5rem 2.25rem;
+}
+
+/* || HUDDLE-HERO - NAV-BAR */
+.huddle-hero__nav-bar {
+    grid-area: nav-bar;
+}
+
+.huddle-hero__logo img {
+    max-width: 120px;
+}
+
+/* || HUDDLE-HERO - HERO-IMAGE */
+.huddle-hero__hero-image {
+    grid-area: hero-img;
+    justify-self: center;
+}
+
+.huddle-hero__hero-image img {
+    max-width: 296px;
+}
+
+/* || HUDDLE-HERO - CONTENT */
+.huddle-hero__content {
+    grid-area: content-block;
+    justify-self: center;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.huddle-hero__title {
+    font: var(--TITLE-MOB);
+    color: var(--TITLE-CLR);
+    margin-bottom: 1rem;
+    max-width: 280px;
+}
+
+.huddle-hero__description {
+    font: var(--DESCRIPTION-MOB);
+    color: var(--DESCRIPTION-CLR);
+    margin-bottom: 1.5rem;
+    max-width: 304px;
+}
+
+.huddle-hero__cta-button {
+    width: 200px;
+    height: 40px;
+    display: block;
+    border-radius: 20px;
+    background-color: var(--BUTTON-BG);
+    box-shadow: var(--BUTTON-SHADOW);
+    font: var(--BUTTON-MOB);
+    color: var(--BUTTON-CLR);
+}
+
+/* || HUDDLE-HERO - SOCIALS */
+.huddle-hero__social-buttons {
+    grid-area: socials;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .625rem;
+}
+
+.huddle-hero__social-buttons a {
+    display: block;
+}
+
+.huddle-hero__social-button img {
+    max-width: 28px;
+}
+
+@media only screen and (min-width: 992px) {
+    body {
+        background-image: url("./images/bg-desktop.svg");
+        background-position: left center;
+        background-size: 91.61% 100%;
+    }
+
+    /* || HUDDLE-HERO */
+    .huddle-hero {
+        width: calc(696px + 529px);
+        /* 1225px */
+        height: 696px;
+        grid-template-columns: 56.82% 43.18%;
+        grid-template-rows: 19.54% 74.71% 5.75%;
+        column-gap: 3.4375rem;
+        grid-template-areas:
+            "nav-bar nav-bar"
+            "hero-img content-block"
+            "socials socials"
+        ;
+        margin: 4rem 80px 2.5rem;
+    }
+
+    /* || HUDDLE-HERO - NAV-BAR */
+    .huddle-hero__logo img {
+        max-width: 200px;
+    }
+
+    /* || HUDDLE-HERO - HERO-IMAGE */
+    .huddle-hero__hero-image {
+        justify-self: left;
+    }
+
+    .huddle-hero__hero-image img {
+        max-width: 696px;
+    }
+
+    /* || HUDDLE-HERO - CONTENT */
+    .huddle-hero__content {
+        justify-self: left;
+        align-items: flex-start;
+        padding-top: 2rem;
+    }
+
+    .huddle-hero__title {
+        font: var(--TITLE-DSK);
+        text-align: left;
+        margin-bottom: 1.5rem;
+        max-width: 487px;
+    }
+
+    .huddle-hero__description {
+        font: var(--DESCRIPTION-DSK);
+        text-align: left;
+        margin-bottom: 1.5rem;
+        max-width: 520px;
+    }
+
+    .huddle-hero__cta-button {
+        height: 56px;
+        border-radius: 28px;
+        cursor: pointer;
+        font: var(--BUTTON-DSK);
+        transition: background-color 0.5s ease, color 0.5s ease;
+    }
+
+    .huddle-hero__cta-button:hover {
+        background-color: var(--BUTTON-HVR-BG);
+        color: var(--BUTTON-HVR-CLR);
+    }
+
+    /* || HUDDLE-HERO - SOCIALS */
+    .huddle-hero__social-buttons {
+        justify-content: flex-end;
+        gap: 1rem;
+    }
+
+    .huddle-hero__social-button img {
+        max-width: 40px;
+    }
+
+    .huddle-hero__social-button:hover img[alt*="org"] {
+        display: none;
+    }
+
+    .huddle-hero__social-button:hover img[alt*="hvr"] {
+        display: block;
+    }
+}
